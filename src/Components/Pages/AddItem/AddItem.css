@@ -32,6 +32,12 @@
     justify-content: center;
     gap: 20px;
 }
+.info-container{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
 .info-container h5{
     text-align: start;
     font-weight: 300;
@@ -54,6 +60,5 @@
 }
 .info-container h5{
     text-align: justify;
-    margin: 20px 10px;
 }
   }

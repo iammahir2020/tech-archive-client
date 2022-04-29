@@ -38,7 +38,7 @@ const AddItem = () => {
       <div className="addItem-form-section">
         <div className="info-container">
           <h5>
-            Enter all the necessary information in the form provided. Make sure
+            "Enter all the necessary information in the form provided. Make sure
             that the <strong>item price</strong> and{" "}
             <strong>item quantity</strong> are positive numbers. In the{" "}
             <strong>item image URL</strong> field provide an online URL of the
@@ -46,7 +46,7 @@ const AddItem = () => {
             <a href="https://imgbb.com/" target="_blank">
               ImgBB
             </a>{" "}
-            website for storing images online and get URL links from there.
+            website for storing images online and get URL links from there."
           </h5>
         </div>
         <div className="form-container">

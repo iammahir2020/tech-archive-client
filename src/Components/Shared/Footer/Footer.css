@@ -1,7 +1,82 @@
-.footer-container{
+.footer{
     background-color: #212429;
     color: white;
+    padding-top: 20px;
 }
-.footer-container h2{
-    margin: 0;
+.footer-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    gap: 20px;
+}
+.footer-logo{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.footer-logo img{
+    width: 50%;
+
+}
+.about{
+    margin-top: 10px;
+    font-weight: 200;
+    font-size: 12px;
+}
+.copyright{
+    padding: 5px 0;
+}
+.copyright p{
+margin: 0;
+text-align: center;
+font-size: 12px;
+}
+
+.social-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+.social-container a{
+    color: white;
+    padding: 5px 0;
+}
+.social-container a:hover{
+    color: #F0EBD8;
+}
+.page-links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+.page-links a{
+    color: white;
+    padding: 5px 0;
+}
+.page-links a:hover{
+    text-decoration: underline;
+    color: white;
+}
+.page-links a:active{
+    text-decoration: underline;
+    color: white;
+}
+.footer-info p{
+    font-size: 12px;
+}
+@media only screen and (max-width: 576px) {
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 10px;
+    }
+    .social-container{
+        flex-direction: row;
+        text-align: center;
+    }
+    .page-links{
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
