@@ -35,7 +35,14 @@
 .info-container{
     padding: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+.info-container img{
+    width: 250px;
+    margin-bottom: -250px;
+    opacity: 0.1;
 }
 
 .info-container h5{
@@ -52,6 +59,9 @@
         width: 95%;
         margin: 20px auto;
         padding: 20px;
+    }
+    .info-container img{
+        display: none;
     }
     .addItem-form-section{
     display: grid;

@@ -15,9 +15,9 @@ const Header = () => {
     signOut(auth);
   };
 
-  if (user) {
-    console.log(user);
-  }
+  // if (user) {
+  //   console.log(user);
+  // }
 
   if (loading) {
     return <Loading></Loading>;

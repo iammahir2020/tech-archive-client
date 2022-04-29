@@ -1,11 +1,20 @@
 import addItemImage from "../../../images/addItem.jpg";
 import React, { useState } from "react";
 import "./AddItem.css";
+import PageTitle from "../../Shared/PageTitle/PageTitle";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddItem = () => {
   const [priceMessage, setPriceMessage] = useState("");
   const [quantityMessage, setQuantityMessage] = useState("");
-  const handleAddItem = (event) => {
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const handleAddItem = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const supplierName = event.target.supplierName.value;
@@ -13,6 +22,7 @@ const AddItem = () => {
     const price = event.target.price.value;
     const quantity = event.target.quantity.value;
     const image = event.target.image.value;
+    const creater = user?.email;
 
     if (price <= 0) {
       setPriceMessage("Price Can Not be less then 0");
@@ -25,18 +35,36 @@ const AddItem = () => {
       return;
     }
 
-    const item = { name, supplierName, description, price, quantity, image };
-    console.log(item);
+    const item = {
+      creater,
+      name,
+      supplierName,
+      description,
+      price,
+      quantity,
+      image,
+    };
+    // console.log(item);
+    const { data } = await axios.post("http://localhost:5000/item", item);
+    console.log(data.acknowledged);
+    if (data.acknowledged === true) {
+      await Swal.fire({
+        title: "Success!",
+        text: "Item Added Successfully!",
+        icon: "success",
+        confirmButtonText: "Proceed",
+      });
+      navigate("/myItems");
+    }
   };
   return (
     <div className="container pt-4 addItem-container">
+      <PageTitle title="Add Items"></PageTitle>
       <br />
       <h2 className="text-center">Add New Item</h2>
-      {/* <p className="text-center">
-        Enter the required information below about the new item
-      </p> */}
       <div className="addItem-form-section">
         <div className="info-container">
+          <img src={addItemImage} alt="" />
           <h5>
             "Fill out the form with all of the required information. Make
             certain that the <strong>item price</strong> and{" "}
