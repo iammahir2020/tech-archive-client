@@ -1,0 +1,35 @@
+.header-logo{
+    width: 150px;
+}
+.nav-links{
+    align-items: center;
+}
+.btn-logout{
+    background-color: rgb(43, 43, 43);
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-weight: 300;
+}
+.btn-logout:hover{
+    background-color: rgb(43, 43, 43);
+    color: white;
+    font-weight: 500;
+}
+.user-logout{
+    padding: 0 20px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 576px) {
+    .user-logout{
+        padding: 0;
+        margin-left: 0;
+        font-size: 25px;
+        color: black;
+    }
+    .nav-links{
+        align-items: flex-start;
+    }
+  }
