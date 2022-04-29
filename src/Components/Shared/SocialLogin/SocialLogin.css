@@ -1,0 +1,32 @@
+.or-container{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.side-bar{
+    height: 1px;
+    background-color: rgb(28, 28, 28);
+    width: 50%;
+}
+.btn-google{
+    background-color: white;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 30px;
+    width: 100%;
+    padding: 9px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.btn-google img{
+    width: 5%;
+}
+.btn-google:hover{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+@media only screen and (max-width: 576px) {
+    .btn-google img{
+        width: 10%;
+    }
+  }
