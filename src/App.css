@@ -1,7 +1,8 @@
 .app-container{
   font-family: 'Poppins', 'sans-serif';
-  background-image: url("/src/images/bg3.png");
-  padding-top: 80px;
+  background-image: url("/src/images/bg2.png");
+  background-attachment: fixed;
+  padding-top: 4%;
 }
 .App {
   text-align: center;
@@ -39,5 +40,10 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 576px) {
+  .app-container{
+    padding-top: 17%;
   }
 }

@@ -23,7 +23,6 @@ const Login = () => {
               id="email"
               placeholder="Enter Email"
               required
-              readOnly
             />
             <input
               className="input-field"

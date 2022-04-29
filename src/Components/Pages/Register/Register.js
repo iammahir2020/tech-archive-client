@@ -21,7 +21,6 @@ const Registration = () => {
               id="name"
               placeholder="Enter Name"
               required
-              readOnly
             />
             <input
               className="input-field"
@@ -30,7 +29,6 @@ const Registration = () => {
               id="email"
               placeholder="Enter Email"
               required
-              readOnly
             />
             <input
               className="input-field"

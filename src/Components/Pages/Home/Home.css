@@ -1,0 +1,29 @@
+.banner-container{
+    background-image: url('../../../images/banner3.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 500px;
+    color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.banner{
+    width: 50%;
+}
+.banner h5{
+    font-weight: 200;
+
+}
+.banner img{
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .banner{
+        width: 80%;
+    }
+  }

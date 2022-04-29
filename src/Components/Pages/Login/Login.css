@@ -1,11 +1,12 @@
 .login-container{
     width: 50%;
     margin: 50px auto;
-    padding: 50px 80px;
+    padding: 50px 90px;
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.6);
-    border: 5px solid rgb(28, 28, 28);
+    border: 3px solid rgb(28, 28, 28);
 }
+
 .input-field{
     width: 100%;
     margin: 10px 0;
@@ -42,7 +43,7 @@
 @media only screen and (max-width: 576px) {
     .login-container{
         width: 100%;
-        margin: 30% auto 50px;
+        margin: 20% auto;
         padding: 50px 20px;
     }
   }
