@@ -58,9 +58,9 @@ const AddItem = () => {
     }
   };
   return (
-    <div className="container pt-4 addItem-container">
+    <div className="container my-4 addItem-container">
       <PageTitle title="Add Items"></PageTitle>
-      <br />
+
       <h2 className="text-center">Add New Item</h2>
       <div className="addItem-form-section">
         <div className="info-container">

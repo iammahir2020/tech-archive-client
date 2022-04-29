@@ -65,18 +65,28 @@ font-size: 12px;
 .footer-info p{
     font-size: 12px;
 }
+
 @media only screen and (max-width: 576px) {
     .footer-container{
         display: grid;
         grid-template-columns: repeat(1,1fr);
         gap: 10px;
     }
+    .footer-social{
+        width: 100%;
+    }
     .social-container{
-        flex-direction: row;
-        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
     }
     .page-links{
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
     }
+    .footer-social > span{
+        text-decoration: underline;
+    }
+    
 }

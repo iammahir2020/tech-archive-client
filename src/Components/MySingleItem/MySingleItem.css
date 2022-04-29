@@ -1,0 +1,65 @@
+.singleItem-card{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px;
+    gap: 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: #212429;
+}
+.singleItem-card:hover{
+    box-shadow: 0 5px 20px rgb(0 0 0 / 0.5);
+}
+.singleItem-info h4{
+    padding-top:  0px;
+    margin: 0;
+    font-weight: 200;
+}
+.singleItem-info h5{
+    padding:  5px 0;
+    margin: 0;
+}
+.singleItem-info p{
+    margin: 0;
+}
+.singleItem-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+.singleItem-delete{
+    display: flex;
+    justify-content: end;
+}
+.singleItem-delete button{
+    background-color: rgb(240, 73, 73);
+    border: none;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    color: white;
+}
+.singleItem-delete button:hover{
+    background-color: rgb(248, 60, 60);
+}
+.icon{
+    font-size: 20px;
+}
+@media only screen and (max-width: 576px) {
+    .singleItem-card{
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 10px;
+        border: 2px solid #212429;
+    }
+    .singleItem-img{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
