@@ -80,9 +80,9 @@ const Footer = () => {
         <div className="footer-logo">
           <img src={logoLight} alt="" />
           <p className="about">
-            Tech Archive is a warehouse management system where users can keep
-            tract of all the items in the warehouse. All the information such as
-            item price, quantity etc can be stored using the system.
+            Tech Archive is a warehouse management solution that allows users to
+            track all of the items in a warehouse. The system can keep tract of
+            all of the information, such as item pricing, quantity, and so on.
           </p>
         </div>
       </div>

@@ -38,15 +38,16 @@ const AddItem = () => {
       <div className="addItem-form-section">
         <div className="info-container">
           <h5>
-            "Enter all the necessary information in the form provided. Make sure
-            that the <strong>item price</strong> and{" "}
-            <strong>item quantity</strong> are positive numbers. In the{" "}
-            <strong>item image URL</strong> field provide an online URL of the
-            item image. If needed you can use the{" "}
+            "Fill out the form with all of the required information. Make
+            certain that the <strong>item price</strong> and{" "}
+            <strong>item quantity</strong> are positive numbers. Provide an
+            internet URL for the item image in the{" "}
+            <strong>item image URL</strong> field. You can use the{" "}
             <a href="https://imgbb.com/" target="_blank">
               ImgBB
             </a>{" "}
-            website for storing images online and get URL links from there."
+            website to save photographs online and obtain URL links if
+            necessary."
           </h5>
         </div>
         <div className="form-container">
