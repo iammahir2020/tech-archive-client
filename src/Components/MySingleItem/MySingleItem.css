@@ -11,6 +11,9 @@
 .singleItem-card:hover{
     box-shadow: 0 5px 20px rgb(0 0 0 / 0.5);
 }
+.singleItem-info{
+    position: relative;
+}
 .singleItem-info h4{
     padding-top:  0px;
     margin: 0;
@@ -28,8 +31,9 @@
     border-radius: 10px;
 }
 .singleItem-delete{
-    display: flex;
-    justify-content: end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .singleItem-delete button{
     background-color: rgb(240, 73, 73);

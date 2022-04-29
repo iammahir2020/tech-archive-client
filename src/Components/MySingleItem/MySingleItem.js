@@ -17,7 +17,7 @@ const MySingleItem = ({ item }) => {
           Price: ${price} <small>/unit</small>{" "}
         </p>
         <h5>In Stock: {quantity} unit</h5>
-        <br />
+
         <div className="singleItem-delete">
           <button>
             <FontAwesomeIcon className="icon" icon={faTrashCan} />
