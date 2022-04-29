@@ -58,9 +58,13 @@ const Header = () => {
                     id="basic-nav-dropdown"
                     className="user-logout"
                   >
-                    <NavDropdown.Item as={NavLink} to="/myItems">
+                    <Nav.Link
+                      style={{ color: "black", marginLeft: "15px" }}
+                      as={NavLink}
+                      to="/myItems"
+                    >
                       My Items
-                    </NavDropdown.Item>
+                    </Nav.Link>
                     <NavDropdown.Item
                       onClick={handleLogOut}
                       className="btn-logout"
