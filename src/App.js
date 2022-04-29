@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "../src/Components/Shared/Header/Header";
 import Footer from "../src/Components/Shared/Footer/Footer";
@@ -14,6 +15,7 @@ import MyItem from "../src/Components/Pages/MyItem/MyItem";
 import PageNotFound from "./Components/Pages/PageNotFound/PageNotFound";
 import { HelmetProvider } from "react-helmet-async";
 import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -61,6 +63,7 @@ function App() {
         </Routes>
       </HelmetProvider>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

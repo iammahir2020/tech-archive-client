@@ -2,7 +2,7 @@
   font-family: 'Poppins', 'sans-serif';
   background-image: url("/src/images/bg2.png");
   background-attachment: fixed;
-  padding-top: 4%;
+  padding-top: 3%;
 }
 .App {
   text-align: center;
@@ -44,6 +44,6 @@
 }
 @media only screen and (max-width: 576px) {
   .app-container{
-    padding-top: 17%;
+    padding-top: 16%;
   }
 }

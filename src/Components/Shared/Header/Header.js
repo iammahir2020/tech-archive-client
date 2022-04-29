@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import "./Header.css";
 import auth from "../../../firebase.init";
+import Loading from "../Loading/Loading";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -13,6 +14,14 @@ const Header = () => {
   const handleLogOut = () => {
     signOut(auth);
   };
+
+  if (user) {
+    console.log(user);
+  }
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <Navbar
@@ -45,7 +54,7 @@ const Header = () => {
               {user ? (
                 <>
                   <NavDropdown
-                    title={user?.displayName}
+                    title={user?.displayName || "Profile"}
                     id="basic-nav-dropdown"
                     className="user-logout"
                   >

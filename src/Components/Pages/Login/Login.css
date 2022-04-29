@@ -26,8 +26,22 @@
     border: none;
     border-radius: 30px;
 }
+.input-disable{
+    background-color: gray;
+}
 .input-submit:hover{
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.reset-password{
+    margin: 0;
+    color: gray;
+}
+.reset-password span{
+    color: red;
+}
+.reset-password span:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 .toggle{
     color: gray;
@@ -39,6 +53,9 @@
 }
 .toggle a:hover{
     text-decoration: underline;
+}
+.login-container small{
+    font-size: 12px;
 }
 @media only screen and (max-width: 576px) {
     .login-container{
