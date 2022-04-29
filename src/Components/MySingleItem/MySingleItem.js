@@ -3,8 +3,9 @@ import "./MySingleItem.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const MySingleItem = ({ item }) => {
-  const { name, supplierName, price, quantity, image } = item;
+const MySingleItem = (props) => {
+  const { handleRemoveItem, item } = props;
+  const { _id, name, supplierName, price, quantity, image } = item;
   return (
     <div className="singleItem-card">
       <div className="singleItem-img">
@@ -19,7 +20,7 @@ const MySingleItem = ({ item }) => {
         <h5>In Stock: {quantity} unit</h5>
 
         <div className="singleItem-delete">
-          <button>
+          <button onClick={() => handleRemoveItem(_id)}>
             <FontAwesomeIcon className="icon" icon={faTrashCan} />
             <p>Remove Item</p>
           </button>
