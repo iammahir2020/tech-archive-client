@@ -12,7 +12,7 @@ const MyItem = () => {
   const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
     const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/item?email=${user?.email}`;
+      const url = `http://localhost:5000/item?email=${user?.email}`;
       const { data } = await axios.get(url);
       // console.log(data);
       setItems(data);
@@ -31,7 +31,7 @@ const MyItem = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
+        const url = `http://localhost:5000/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);
@@ -45,7 +45,7 @@ const MyItem = () => {
   return (
     <div className="container my-4">
       <PageTitle title="My Items"></PageTitle>
-      <h2 className="myItems-header">My Item</h2>
+      <h2 className="header">My Item</h2>
       {items.length === 0 && (
         <h2 className="no-item-message">You haven't added any item yet...</h2>
       )}
@@ -54,7 +54,8 @@ const MyItem = () => {
           <MySingleItem
             key={item._id}
             item={item}
-            handleRemoveItem={handleRemoveItem}
+            eventListener={handleRemoveItem}
+            deleteBtn={true}
           ></MySingleItem>
         ))}
       </div>

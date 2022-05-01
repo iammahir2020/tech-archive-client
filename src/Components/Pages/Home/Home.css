@@ -21,9 +21,20 @@
     width: 100%;
 }
 
+.items-container{
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-around;
+    gap: 20px;
+}
 
 @media only screen and (max-width: 576px) {
     .banner{
         width: 80%;
+    }
+    .items-container{
+        grid-template-columns: repeat(1,1fr);
+        gap: 10px;
     }
   }

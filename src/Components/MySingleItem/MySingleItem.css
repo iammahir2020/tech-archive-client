@@ -52,6 +52,25 @@
 .icon{
     font-size: 20px;
 }
+.singleItem-update{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.singleItem-update button{
+    background-color: rgb(240, 198, 73);
+    border: none;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    color: black;
+}
+.singleItem-update button:hover{
+    background-color: rgb(248, 157, 60);
+}
 @media only screen and (max-width: 576px) {
     .singleItem-card{
         grid-template-columns: 1fr;
