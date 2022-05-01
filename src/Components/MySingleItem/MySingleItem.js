@@ -30,7 +30,7 @@ const MySingleItem = (props) => {
           <div className="singleItem-update">
             <button onClick={() => eventListener(_id)}>
               <FontAwesomeIcon className="icon" icon={faPenToSquare} />
-              <p>Update Item</p>
+              <p>Update</p>
             </button>
           </div>
         )}

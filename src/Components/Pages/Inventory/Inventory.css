@@ -10,6 +10,21 @@
     color: white;
     margin: 20px 0 30px;
 }
+.navigate-btn-container{
+    display: flex;
+    justify-content: end;
+}
+.navigate-btn{
+    margin: 20px 0 10px;
+    background-color: rgb(28, 28, 28);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+}
+.navigate-btn:hover{
+    box-shadow: 0 5px 10px rgb(0 0 0 / 0.6);
+}
 .item-detail p{
     margin:0;
 }

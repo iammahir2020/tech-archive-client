@@ -11,7 +11,7 @@ const Home = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const getItems = async () => {
-      const url = `http://localhost:5000/items?number=6`;
+      const url = `https://shielded-falls-85173.herokuapp.com/items?number=6`;
       const { data } = await axios.get(url);
       setItems(data);
     };
@@ -32,6 +32,11 @@ const Home = () => {
       </div>
       <div className="container my-5">
         <h2 className="header">Inventory</h2>
+        <div className="navigate-btn-container">
+          <button onClick={() => navigate("/manage")} className="navigate-btn">
+            Manage Inventories
+          </button>
+        </div>
         <div className="items-container">
           {items.map((item) => (
             <MySingleItem

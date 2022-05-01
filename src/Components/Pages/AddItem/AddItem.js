@@ -45,7 +45,10 @@ const AddItem = () => {
       image,
     };
     // console.log(item);
-    const { data } = await axios.post("http://localhost:5000/item", item);
+    const { data } = await axios.post(
+      "https://shielded-falls-85173.herokuapp.com/item",
+      item
+    );
     console.log(data.acknowledged);
     if (data.acknowledged === true) {
       await Swal.fire({
@@ -58,10 +61,10 @@ const AddItem = () => {
     }
   };
   return (
-    <div className="container my-4 addItem-container">
+    <div className="container py-4 addItem-container">
       <PageTitle title="Add Items"></PageTitle>
 
-      <h2 className="text-center">Add New Item</h2>
+      <h2 className="header">Add New Item</h2>
       <div className="addItem-form-section">
         <div className="info-container">
           <img src={addItemImage} alt="" />

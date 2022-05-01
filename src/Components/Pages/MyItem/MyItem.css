@@ -1,6 +1,7 @@
 .header{
     text-decoration: underline;
     text-align: center;
+    margin-top: 20px;
 }
 .myItems-container{
     margin: 50px 0;
