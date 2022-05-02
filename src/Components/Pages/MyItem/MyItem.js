@@ -6,16 +6,29 @@ import MySingleItem from "../../MySingleItem/MySingleItem";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 import "./MyItem.css";
 import Swal from "sweetalert2";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import axiosPrivate from "../../../apiInterceptor/axiosPrivate";
 
 const MyItem = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
     const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/item?email=${user?.email}`;
-      const { data } = await axios.get(url);
-      // console.log(data);
-      setItems(data);
+      const url = `http://localhost:5000/item?email=${user?.email}`;
+      try {
+        const { data } = await axiosPrivate.get(url);
+        // console.log(data);
+        setItems(data);
+      } catch (error) {
+        console.log(error.message);
+        // console.log(error.response.status);
+        if (error.response.status === 403 || 401) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
     };
     getItems();
   }, [user]);
@@ -31,7 +44,7 @@ const MyItem = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
+        const url = `http://localhost:5000/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);

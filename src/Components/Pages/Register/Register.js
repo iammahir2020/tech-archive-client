@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import useJwtToken from "../../../Hooks/useJwtToken";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const Registration = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+  const [token] = useJwtToken(user);
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -58,7 +60,7 @@ const Registration = () => {
   };
 
   const from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

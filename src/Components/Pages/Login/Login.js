@@ -10,6 +10,7 @@ import {
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import { toast } from "react-toastify";
+import useJwtToken from "../../../Hooks/useJwtToken";
 
 const Login = () => {
   const [email, setEmail] = useState({ value: "", error: "" });
@@ -19,12 +20,13 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetError] =
     useSendPasswordResetEmail(auth);
+  const [token] = useJwtToken(user);
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const password = event.target.password.value;
 
-    signInWithEmailAndPassword(email.value, password);
+    await signInWithEmailAndPassword(email.value, password);
   };
 
   const handleResetPassword = async () => {
@@ -52,7 +54,7 @@ const Login = () => {
   };
 
   const from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

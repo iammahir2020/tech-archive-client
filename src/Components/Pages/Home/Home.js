@@ -11,7 +11,7 @@ const Home = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/items?number=6`;
+      const url = `http://localhost:5000/items?number=6`;
       const { data } = await axios.get(url);
       setItems(data);
     };

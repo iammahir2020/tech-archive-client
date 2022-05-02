@@ -4,18 +4,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import useJwtToken from "../../../Hooks/useJwtToken";
 const SocialLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
-
+  const [token] = useJwtToken(googleUser);
   const handleSignInWithGoogle = () => {
     signInWithGoogle();
   };
 
   const from = location.state?.from?.pathname || "/";
-  if (googleUser) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

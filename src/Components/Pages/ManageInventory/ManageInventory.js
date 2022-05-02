@@ -13,7 +13,7 @@ const ManageInventory = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/items`;
+      const url = `http://localhost:5000/items`;
       const { data } = await axios.get(url);
       setItems(data);
     };
@@ -35,7 +35,7 @@ const ManageInventory = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
+        const url = `http://localhost:5000/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);
@@ -55,7 +55,7 @@ const ManageInventory = () => {
         </button>
       </div>
       <div className="table-container table-responsive">
-        <Table bordered hover variant="dark">
+        <Table hover variant="dark">
           <thead>
             <tr>
               <th>Image</th>
@@ -70,7 +70,12 @@ const ManageInventory = () => {
           </thead>
           <tbody>
             {items.map((item) => (
-              <tr key={item._id}>
+              <tr
+                data-toggle="tooltip"
+                data-placement="top"
+                title={`Added By: ${item.creater}`}
+                key={item._id}
+              >
                 <td className="table-image">
                   <img src={item.image} alt="" />
                 </td>
