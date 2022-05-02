@@ -13,7 +13,7 @@ const ManageInventory = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const getItems = async () => {
-      const url = `http://localhost:5000/items`;
+      const url = `https://shielded-falls-85173.herokuapp.com/items`;
       const { data } = await axios.get(url);
       setItems(data);
     };
@@ -35,7 +35,7 @@ const ManageInventory = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `http://localhost:5000/item?id=${id}`;
+        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);
