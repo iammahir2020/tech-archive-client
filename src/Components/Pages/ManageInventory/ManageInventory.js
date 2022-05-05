@@ -54,6 +54,7 @@ const ManageInventory = () => {
               <th>Image</th>
               <th>Name</th>
               <th>Supplier Name</th>
+              <th>Added By</th>
               <th>Description</th>
               <th>Price</th>
               <th>Quantity</th>
@@ -74,6 +75,7 @@ const ManageInventory = () => {
                 </td>
                 <td>{item.name}</td>
                 <td>{item.supplierName}</td>
+                <td>{item.creater}</td>
                 <td>{item.description}</td>
                 <td>{item.price}</td>
                 <td>{item.quantity}</td>

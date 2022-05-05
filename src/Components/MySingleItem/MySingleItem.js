@@ -23,6 +23,8 @@ const MySingleItem = (props) => {
           <h5>In Stock: {quantity} unit</h5>
         )}
 
+        <br />
+        <br />
         {deleteBtn ? (
           <div className="singleItem-delete">
             <button onClick={() => eventListener(_id)}>

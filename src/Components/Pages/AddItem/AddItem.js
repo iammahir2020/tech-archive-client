@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const AddItem = () => {
+  const [show, setShow] = useState(false);
   const [priceMessage, setPriceMessage] = useState("");
   const [quantityMessage, setQuantityMessage] = useState("");
   const [user, loading, error] = useAuthState(auth);
@@ -63,7 +64,6 @@ const AddItem = () => {
   return (
     <div className="container py-4 addItem-container">
       <PageTitle title="Add Items"></PageTitle>
-
       <h2 className="header">Add New Item</h2>
       <div className="addItem-form-section">
         <div className="info-container">

@@ -50,7 +50,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="container my-5">
+      <div className="container my-5 bar-chart">
         <h2 className="header mb-5">Qunatity of Items in Stock</h2>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart width={100} height={250} data={items}>

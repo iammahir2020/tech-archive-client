@@ -41,6 +41,7 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/">
                 Home
               </Nav.Link>
+
               {user && (
                 <>
                   <Nav.Link as={NavLink} to="/add">
@@ -51,6 +52,9 @@ const Header = () => {
                   </Nav.Link>
                 </>
               )}
+              <Nav.Link as={NavLink} to="/blogs">
+                Blogs
+              </Nav.Link>
               {user ? (
                 <>
                   <NavDropdown

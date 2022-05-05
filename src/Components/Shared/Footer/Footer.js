@@ -65,6 +65,7 @@ const Footer = () => {
             <Nav.Link as={NavLink} to="/">
               Home
             </Nav.Link>
+
             {user && (
               <>
                 <Nav.Link as={NavLink} to="/add">
@@ -75,6 +76,9 @@ const Footer = () => {
                 </Nav.Link>
               </>
             )}
+            <Nav.Link as={NavLink} to="/blogs">
+              Blogs
+            </Nav.Link>
           </div>
         </div>
         <div className="footer-logo">
