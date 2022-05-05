@@ -17,7 +17,11 @@ const MySingleItem = (props) => {
         <p>
           Price: ${price} <small>/unit</small>{" "}
         </p>
-        <h5>In Stock: {quantity} unit</h5>
+        {quantity === 0 ? (
+          <h5 className="text-danger">Out of stock</h5>
+        ) : (
+          <h5>In Stock: {quantity} unit</h5>
+        )}
 
         {deleteBtn ? (
           <div className="singleItem-delete">

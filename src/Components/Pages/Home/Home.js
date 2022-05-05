@@ -1,25 +1,27 @@
 import logoLight from "../../../images/logoLight.png";
-import React, { useEffect, useState } from "react";
 import "./Home.css";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
-import axios from "axios";
 import MySingleItem from "../../MySingleItem/MySingleItem";
 import { useNavigate } from "react-router-dom";
+import {
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  BarChart,
+  Bar,
+  ResponsiveContainer,
+} from "recharts";
+import useItems from "../../../Hooks/useItems";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/items?number=6`;
-      const { data } = await axios.get(url);
-      setItems(data);
-    };
-    getItems();
-  }, []);
+  const [items, setItems] = useItems();
   const handleUpdateItem = (id) => {
     navigate(`/inventory/${id}`);
   };
+
   return (
     <div>
       <PageTitle title="Home"></PageTitle>
@@ -38,7 +40,7 @@ const Home = () => {
           </button>
         </div>
         <div className="items-container">
-          {items.map((item) => (
+          {items.slice(0, 6).map((item) => (
             <MySingleItem
               key={item._id}
               item={item}
@@ -47,6 +49,19 @@ const Home = () => {
             ></MySingleItem>
           ))}
         </div>
+      </div>
+      <div className="container my-5">
+        <h2 className="header mb-5">Qunatity of Items in Stock</h2>
+        <ResponsiveContainer width="100%" height={250}>
+          <BarChart width={100} height={250} data={items}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="quantity" fill="#212429" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );

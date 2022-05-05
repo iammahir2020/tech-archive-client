@@ -15,7 +15,7 @@ const Inventory = () => {
   const [quantity, setQuantity] = useState("");
   useEffect(() => {
     const getItem = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/inventory?id=${id}`;
+      const url = `http://localhost:5000/inventory?id=${id}`;
       const { data } = await axios.get(url);
       setItem(data);
       setQuantity(data.quantity);
@@ -48,7 +48,7 @@ const Inventory = () => {
   };
 
   const updateQuantity = async (newQuantity) => {
-    const url = `https://shielded-falls-85173.herokuapp.com/item`;
+    const url = `http://localhost:5000/item`;
     const { data } = await axios.put(url, { newQuantity, id });
     if (data.acknowledged) {
       Swal.fire({
@@ -89,18 +89,18 @@ const Inventory = () => {
             <span>In Stock:</span> {quantity}
             <span> unit</span>
           </h4>
-          <small className="text-danger">
+          {/* <small className="text-danger">
             {quantity === 0 && `out of stock`}
-          </small>
+          </small> */}
           {/* <hr /> */}
           {/* <p>Single Item Delivered</p> */}
           <button
             disabled={quantity === 0 ? true : false}
             onClick={handleDeliveredButton}
-            className="delivered-btn"
+            className={quantity === 0 ? "out-of-stock-btn" : "delivered-btn"}
           >
             <FontAwesomeIcon className="icon" icon={faTruck} />
-            <p>Delivered</p>
+            <p>{quantity === 0 ? "Out of stock" : "Delivered"}</p>
           </button>
           <hr />
           <div className="update-quantity">
