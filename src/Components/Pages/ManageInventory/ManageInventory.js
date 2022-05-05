@@ -28,7 +28,7 @@ const ManageInventory = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `http://localhost:5000/item?id=${id}`;
+        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);
