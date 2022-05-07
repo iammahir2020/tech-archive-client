@@ -15,7 +15,7 @@ const Inventory = () => {
   const [quantity, setQuantity] = useState("");
   useEffect(() => {
     const getItem = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/inventory?id=${id}`;
+      const url = `http://localhost:5000/inventory?id=${id}`;
       const { data } = await axios.get(url);
       setItem(data);
       setQuantity(data.quantity);
@@ -48,7 +48,7 @@ const Inventory = () => {
   };
 
   const updateQuantity = async (newQuantity) => {
-    const url = `https://shielded-falls-85173.herokuapp.com/item`;
+    const url = `http://localhost:5000/item`;
     const { data } = await axios.put(url, { newQuantity, id });
     if (data.acknowledged) {
       Swal.fire({
@@ -104,7 +104,7 @@ const Inventory = () => {
           </button>
           <hr />
           <div className="update-quantity">
-            <h5>Update Inventory</h5>
+            <h5>Restock Item</h5>
             <br />
             <form onSubmit={handleUpdateQuantityButton}>
               <div>

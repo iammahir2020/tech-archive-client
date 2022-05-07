@@ -58,6 +58,10 @@ const Login = () => {
     navigate(from, { replace: true });
   }
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div className="container">
       <PageTitle title="Login"></PageTitle>

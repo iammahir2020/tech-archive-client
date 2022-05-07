@@ -28,7 +28,7 @@ const ManageInventory = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
+        const url = `http://localhost:5000/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);
@@ -47,61 +47,65 @@ const ManageInventory = () => {
           Add New Item
         </button>
       </div>
-      <div className="table-container table-responsive">
-        <Table hover variant="dark">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Supplier Name</th>
-              <th>Added By</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Update</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item) => (
-              <tr
-                data-toggle="tooltip"
-                data-placement="top"
-                title={`Added By: ${item.creater}`}
-                key={item._id}
-              >
-                <td className="table-image">
-                  <img src={item.image} alt="" />
-                </td>
-                <td>{item.name}</td>
-                <td>{item.supplierName}</td>
-                <td>{item.creater}</td>
-                <td>{item.description}</td>
-                <td>{item.price}</td>
-                <td>{item.quantity}</td>
-                <td>
-                  <button className="update-btn">
-                    <FontAwesomeIcon
-                      onClick={() => handleUpdateItem(item._id)}
-                      className="icon"
-                      icon={faPenToSquare}
-                    />
-                  </button>
-                </td>
-                <td>
-                  <button className="remove-btn">
-                    <FontAwesomeIcon
-                      onClick={() => handleRemoveItem(item._id)}
-                      className="icon"
-                      icon={faTrashCan}
-                    />
-                  </button>
-                </td>
+      {items.length === 0 ? (
+        <h2 className="no-item-message">No Items Added to Inventory...</h2>
+      ) : (
+        <div className="table-container table-responsive">
+          <Table hover variant="dark">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Supplier Name</th>
+                <th>Added By</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Update</th>
+                <th>Remove</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <tr
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title={`Added By: ${item.creater}`}
+                  key={item._id}
+                >
+                  <td className="table-image">
+                    <img src={item.image} alt="" />
+                  </td>
+                  <td>{item.name}</td>
+                  <td>{item.supplierName}</td>
+                  <td>{item.creater}</td>
+                  <td>{item.description}</td>
+                  <td>{item.price}</td>
+                  <td>{item.quantity}</td>
+                  <td>
+                    <button className="update-btn">
+                      <FontAwesomeIcon
+                        onClick={() => handleUpdateItem(item._id)}
+                        className="icon"
+                        icon={faPenToSquare}
+                      />
+                    </button>
+                  </td>
+                  <td>
+                    <button className="remove-btn">
+                      <FontAwesomeIcon
+                        onClick={() => handleRemoveItem(item._id)}
+                        className="icon"
+                        icon={faTrashCan}
+                      />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      )}
     </div>
   );
 };

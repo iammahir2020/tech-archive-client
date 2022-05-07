@@ -14,6 +14,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import useItems from "../../../Hooks/useItems";
+import AddReview from "../../AddReview/AddReview";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -39,29 +40,41 @@ const Home = () => {
             Manage Inventories
           </button>
         </div>
-        <div className="items-container">
-          {items.slice(0, 6).map((item) => (
-            <MySingleItem
-              key={item._id}
-              item={item}
-              eventListener={handleUpdateItem}
-              deleteBtn={false}
-            ></MySingleItem>
-          ))}
-        </div>
+        {items.length === 0 ? (
+          <h2 className="no-item-message">No Items Added to Inventory...</h2>
+        ) : (
+          <div className="items-container">
+            {items.slice(0, 6).map((item) => (
+              <MySingleItem
+                key={item._id}
+                item={item}
+                eventListener={handleUpdateItem}
+                deleteBtn={false}
+              ></MySingleItem>
+            ))}
+          </div>
+        )}
       </div>
       <div className="container my-5 bar-chart">
         <h2 className="header mb-5">Qunatity of Items in Stock</h2>
-        <ResponsiveContainer width="100%" height={250}>
-          <BarChart width={100} height={250} data={items}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="quantity" fill="#212429" />
-          </BarChart>
-        </ResponsiveContainer>
+        {items.length === 0 ? (
+          <h2 className="no-item-message">No Items to Show</h2>
+        ) : (
+          <ResponsiveContainer width="100%" height={250}>
+            <BarChart width={100} height={250} data={items}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="quantity" fill="#212429" />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+      </div>
+      <div className="container my-5">
+        {/* <h2 className="header mb-5">Reviews & Suggestions</h2> */}
+        <AddReview></AddReview>
       </div>
     </div>
   );

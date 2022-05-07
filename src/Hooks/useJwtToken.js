@@ -9,12 +9,9 @@ const useJwtToken = (user) => {
       // const email = "";
       const email = user?.user?.email;
       if (email) {
-        const { data } = await axios.post(
-          "https://shielded-falls-85173.herokuapp.com/getJWTtoken",
-          {
-            email,
-          }
-        );
+        const { data } = await axios.post("http://localhost:5000/getJWTtoken", {
+          email,
+        });
         setToken(data.jwtAccessToken);
         localStorage.setItem("jwtAccessToken", data.jwtAccessToken);
       }

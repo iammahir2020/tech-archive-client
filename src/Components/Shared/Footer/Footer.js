@@ -17,11 +17,16 @@ import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import Loading from "../Loading/Loading";
 
 const Footer = () => {
   const [user, loading, error] = useAuthState(auth);
   const date = new Date();
   const year = date.getFullYear();
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="footer">
       <div className="footer-container container">

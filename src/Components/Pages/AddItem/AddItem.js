@@ -7,9 +7,9 @@ import auth from "../../../firebase.init";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../Shared/Loading/Loading";
 
 const AddItem = () => {
-  const [show, setShow] = useState(false);
   const [priceMessage, setPriceMessage] = useState("");
   const [quantityMessage, setQuantityMessage] = useState("");
   const [user, loading, error] = useAuthState(auth);
@@ -46,10 +46,7 @@ const AddItem = () => {
       image,
     };
     // console.log(item);
-    const { data } = await axios.post(
-      "https://shielded-falls-85173.herokuapp.com/item",
-      item
-    );
+    const { data } = await axios.post("http://localhost:5000/item", item);
     console.log(data.acknowledged);
     if (data.acknowledged === true) {
       await Swal.fire({
@@ -61,6 +58,10 @@ const AddItem = () => {
       navigate("/myItems");
     }
   };
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="container py-4 addItem-container">
       <PageTitle title="Add Items"></PageTitle>

@@ -1,0 +1,29 @@
+.rating-container{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+    padding: 30px;
+    background-color: white;
+}
+
+.add-rating-form input{
+    margin: 20px 0;
+}
+
+.review-btn input{
+    background-color: #212429;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+}
+
+.rating-container small{
+    font-style: italic;
+}
+@media only screen and (max-width: 576px) {
+    .rating-container{
+        width: 100%;
+        padding: 10px;
+    }
+}
