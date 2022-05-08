@@ -70,10 +70,19 @@ const Blogs = () => {
           <h5>Q2. When do we use 'NodeJS' and when do we use 'MongoDB'?</h5>
           <hr />
           <p>
-            Node.js, in my opinion, is most suited for real-time applications
-            such as online games, collaboration tools, chat rooms, or anything
-            else where what one user does with the application needs to be
-            viewed by other users right away, without requiring a page refresh.
+            Node js is a javascript runtime environment enabling users to run
+            javascript on the server. It's most typically used to develop web
+            servers, but it may also be used to write a wide range of other
+            programs. Any project necessitates a programming environment and a
+            runtime library capable of compiling and/or interpreting code while
+            also providing basic programming tools and support. Nodejs can be
+            used to create a standalone Javascript program or server.
+          </p>
+          <p>
+            MongoDB is a relational database system. It is a database that is no
+            SQL-based. You'll almost likely need to utilize a database like
+            mongodb if your application demands the ability to save data so that
+            it can be effectively queried or updated later.
           </p>
         </div>
         <div className="blogs">
@@ -158,21 +167,16 @@ const Blogs = () => {
           <h5>Q4. What is the purpose of 'JWT' and how it works?</h5>
           <hr />
           <p>
-            JWT (JSON Web Token) is an open standard for securely exchanging
-            data between two parties. It's usually an encoded JSON file with a
-            series of claims and a signature.
-          </p>
-          <p>
-            The issuer typically signs the JWT using a private key, or secret.
-            The receiver of the JWT will check the signature to make sure the
-            token hasn't been tampered with after the issuer signed it.
-            Unauthenticated sources will have a hard time guessing the signing
-            key and attempting to modify the claims within the JWT.
-          </p>
-          <p>
-            If we use a JWT as a bearer for authorization, we may check if the
-            user is authenticated statelessly by verifying if the payload's
-            expiration hasn't elapsed and the signature is valid.
+            JWT or JSON Web Token is an open standard that allows two parties to
+            share security information. Each JWT contains JSON elements
+            containing a series of claims. JWTs use cryptography to ensure that
+            claims cannot be modified after the token has been issued. JWT
+            differs from other web tokens in that it contains a list of claims.
+            The cornerstone of information sharing between two parties is
+            claims. The use case in question determines the character of these
+            claims. A claim could include information such as who issued the
+            token, how long it is valid, and what permissions the client has
+            been granted.
           </p>
         </div>
       </div>
