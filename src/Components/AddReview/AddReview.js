@@ -10,14 +10,26 @@ import "./AddReview.css";
 const AddReview = ({ setNewItem }) => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
   const changeRating = (newRating) => {
     setRating(newRating);
   };
   const handleSubmitReview = async (event) => {
     event.preventDefault();
     if (!user) {
-      navigate("/login");
+      Swal.fire({
+        title: "You are not logged in",
+        text: "Please Login First!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Proceed To Login Page",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
     } else {
       const review = {
         name: user?.displayName,

@@ -15,6 +15,9 @@
     align-items: center;
     justify-content: center;
 }
+.item-review p{
+    font-style: italic;
+}
 
 .item-name{
     background-color: #212429;
