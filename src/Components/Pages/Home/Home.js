@@ -48,7 +48,8 @@ const Home = () => {
         )}
       </div>
       <div className="container my-5 bar-chart">
-        <h2 className="header mb-5">Qunatity of Items in Stock</h2>
+        <h2 className="header">Qunatity of Items in Stock</h2>
+        <p className="mb-5 text-center">Items in Stock {items.length}</p>
         {items.length === 0 ? (
           <h2 className="no-item-message">No Items to Show</h2>
         ) : (

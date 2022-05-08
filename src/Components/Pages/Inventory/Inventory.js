@@ -51,9 +51,18 @@ const Inventory = () => {
     const url = `https://shielded-falls-85173.herokuapp.com/item`;
     const { data } = await axios.put(url, { newQuantity, id });
     if (data.acknowledged) {
-      Swal.fire({
-        title: "Stock Updated!",
-        icon: "success",
+      // Swal.fire({
+      //   title: "Stock Updated!",
+      //   icon: "success",
+      // });
+      toast.success("The Stock has been Updated!", {
+        position: "bottom-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
     }
   };

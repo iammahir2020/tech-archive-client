@@ -1,6 +1,9 @@
 .table-container{
     width: 100%;
 }
+.table-container td{
+    font-weight: 200;
+}
 .remove-btn{
     background-color: rgb(240, 73, 73);
     border: none;

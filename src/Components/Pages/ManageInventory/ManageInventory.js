@@ -80,7 +80,7 @@ const ManageInventory = () => {
                   <td>{item.supplierName}</td>
                   <td>{item.creater}</td>
                   <td>{item.description}</td>
-                  <td>{item.price}</td>
+                  <td>${item.price}</td>
                   <td>{item.quantity}</td>
                   <td>
                     <button className="update-btn">
