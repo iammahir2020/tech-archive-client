@@ -12,6 +12,7 @@ import {
   faPhone,
   faLocationPin,
   faLink,
+  faAt,
 } from "@fortawesome/free-solid-svg-icons";
 import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -38,6 +39,10 @@ const Footer = () => {
           <div className="contact">
             <FontAwesomeIcon icon={faPhone} /> <span> Contact</span>
             <p>+509-267-1042</p>
+          </div>
+          <div className="email">
+            <FontAwesomeIcon icon={faAt} /> <span> Email</span>
+            <p>infoTechArchive@gmail.com</p>
           </div>
         </div>
         <div className="footer-social">
