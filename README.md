@@ -23,7 +23,8 @@ Tech Archive is an electronic product inventory management system. It's useful f
 7. Add items though Add item page (user login required).
 8. Manage items through Manage Items Page (user login required).
 9. Quantity of each items can be updated (user login required).
-10. Device Responsive.
+10. Json Web Token feature implemented.
+11. Device Responsive.
 
 ### Technologies Used
 
