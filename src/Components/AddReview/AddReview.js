@@ -1,39 +1,51 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import Swal from "sweetalert2";
+import auth from "../../firebase.init";
 import "./AddReview.css";
 
-const AddReview = () => {
+const AddReview = ({ setNewItem }) => {
+  const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
   const [rating, setRating] = useState(1);
   const changeRating = (newRating) => {
     setRating(newRating);
   };
   const handleSubmitReview = async (event) => {
     event.preventDefault();
-    const review = {
-      comment: event.target.review.value,
-      rating: rating,
-    };
+    if (!user) {
+      navigate("/login");
+    } else {
+      const review = {
+        name: user?.displayName,
+        email: user?.email,
+        comment: event.target.review.value,
+        rating: rating,
+      };
 
-    const { data } = await axios.post("http://localhost:5000/review", review);
-    console.log(data.acknowledged);
-    if (data.acknowledged === true) {
-      await Swal.fire({
-        title: "Success!",
-        text: "Your suggestion has been received!",
-        icon: "success",
-        confirmButtonText: "Proceed",
-      });
+      const { data } = await axios.post("http://localhost:5000/review", review);
+      console.log(data.insertedId);
+      if (data.acknowledged === true) {
+        await Swal.fire({
+          title: "Success!",
+          text: "Your suggestion has been received!",
+          icon: "success",
+          confirmButtonText: "Proceed",
+        });
+      }
+
+      event.target.reset();
+      setRating(0);
+      setNewItem(review, data.insertedId);
+      // console.log(review);
     }
-
-    event.target.reset();
-    setRating(0);
-    // console.log(review);
   };
   return (
     <div className="rating-container">
-      <h4>Review / Suggestion</h4>
+      {/* <h4>Review / Suggestion</h4> */}
       <small>
         "Please drop any review or suggestions that might help us in improving
         our system. Thank you"

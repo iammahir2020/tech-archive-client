@@ -15,10 +15,35 @@ import {
 } from "recharts";
 import useItems from "../../../Hooks/useItems";
 import AddReview from "../../AddReview/AddReview";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import SingleReview from "../../SingleReview/SingleReview";
 
 const Home = () => {
   const navigate = useNavigate();
   const [items, setItems] = useItems();
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const getReviews = async () => {
+      const { data } = await axios.get("http://localhost:5000/review");
+      setReviews(data);
+    };
+    getReviews();
+  }, []);
+
+  const setNewItem = (item, id) => {
+    console.log(item);
+    item._id = id;
+    console.log(item);
+    const newReviewsList = [...reviews, item];
+    console.log(newReviewsList);
+    setReviews(newReviewsList);
+  };
+
   const handleUpdateItem = (id) => {
     navigate(`/inventory/${id}`);
   };
@@ -72,9 +97,20 @@ const Home = () => {
           </ResponsiveContainer>
         )}
       </div>
+      <div className="review-section container">
+        <h2 className="header mb-5">Reviews / Suggestions</h2>
+        {reviews.length === 0 ? (
+          <h2 className="no-item-message">No Reviews to Show</h2>
+        ) : (
+          <OwlCarousel className="owl-theme" loop margin={10} nav>
+            {reviews.map((review) => (
+              <SingleReview key={review._id} review={review}></SingleReview>
+            ))}
+          </OwlCarousel>
+        )}
+      </div>
       <div className="container my-5">
-        {/* <h2 className="header mb-5">Reviews & Suggestions</h2> */}
-        <AddReview></AddReview>
+        <AddReview setNewItem={setNewItem}></AddReview>
       </div>
     </div>
   );

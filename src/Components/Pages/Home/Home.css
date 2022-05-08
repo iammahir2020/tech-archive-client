@@ -31,6 +31,8 @@
 .bar-chart{
     background-color: white;
 }
+
+
 @media only screen and (max-width: 576px) {
     .banner{
         width: 80%;
