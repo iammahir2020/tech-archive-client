@@ -24,7 +24,7 @@ const AddItem = () => {
     const quantity = event.target.quantity.value;
     const image = event.target.image.value;
     const creater = user?.email;
-
+    const sold = 0;
     if (price <= 0) {
       setPriceMessage("Price Can Not be less then 0");
       setQuantityMessage("");
@@ -44,6 +44,7 @@ const AddItem = () => {
       price,
       quantity,
       image,
+      sold,
     };
     // console.log(item);
     const { data } = await axios.post(

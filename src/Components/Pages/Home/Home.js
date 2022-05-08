@@ -27,11 +27,7 @@ const Home = () => {
       </div>
       <div className="container my-5">
         <h2 className="header">Inventory</h2>
-        <div className="navigate-btn-container">
-          <button onClick={() => navigate("/manage")} className="navigate-btn">
-            Manage Inventories
-          </button>
-        </div>
+
         {items.length === 0 ? (
           <h2 className="no-item-message">No Items Added to Inventory...</h2>
         ) : (
@@ -46,6 +42,11 @@ const Home = () => {
             ))}
           </div>
         )}
+        <div className="navigate-btn-container">
+          <button onClick={() => navigate("/manage")} className="navigate-btn">
+            Manage Inventories
+          </button>
+        </div>
       </div>
       <div className="container my-5 bar-chart">
         <h2 className="header">Qunatity of Items in Stock</h2>

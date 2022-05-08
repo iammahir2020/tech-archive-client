@@ -12,24 +12,30 @@ const Inventory = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [quantity, setQuantity] = useState("");
+  const [sold, setSold] = useState("");
   useEffect(() => {
     const getItem = async () => {
       const url = `https://shielded-falls-85173.herokuapp.com/inventory?id=${id}`;
       const { data } = await axios.get(url);
       setItem(data);
       setQuantity(data.quantity);
+      setSold(data.sold);
     };
     getItem();
   }, [id]);
 
   const handleDeliveredButton = () => {
     const newQuantity = parseInt(quantity) - 1;
+    const newSold = parseInt(sold) + 1;
     if (newQuantity < 0) {
       toast("The Item is out of stock");
       return;
     }
     setQuantity(newQuantity);
-    updateQuantity(newQuantity);
+    console.log("newSold", newSold);
+    setSold(newSold);
+    updateQuantity(newQuantity, newSold);
+    // updateSoldQuantity(newSold);
   };
 
   const handleUpdateQuantityButton = (event) => {
@@ -42,13 +48,14 @@ const Inventory = () => {
     console.log(quantityInput);
     const newQuantity = parseInt(quantity) + quantityInput;
     setQuantity(newQuantity);
-    updateQuantity(newQuantity);
+    updateQuantity(newQuantity, sold);
     event.target.reset();
   };
 
-  const updateQuantity = async (newQuantity) => {
+  const updateQuantity = async (newQuantity, newSold) => {
+    // console.log(newQuantity, newSold);
     const url = `https://shielded-falls-85173.herokuapp.com/item`;
-    const { data } = await axios.put(url, { newQuantity, id });
+    const { data } = await axios.put(url, { newSold, newQuantity, id });
     if (data.acknowledged) {
       // Swal.fire({
       //   title: "Stock Updated!",
@@ -63,6 +70,25 @@ const Inventory = () => {
         draggable: true,
         progress: undefined,
       });
+    }
+  };
+  const updateSoldQuantity = async (newSold) => {
+    const url = `https://shielded-falls-85173.herokuapp.com/item`;
+    const { data } = await axios.put(url, { newSold, id });
+    if (data.acknowledged) {
+      // Swal.fire({
+      //   title: "Stock Updated!",
+      //   icon: "success",
+      // });
+      // toast.success("The Stock has been Updated!", {
+      //   position: "bottom-left",
+      //   autoClose: 3000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
     }
   };
 
@@ -93,6 +119,10 @@ const Inventory = () => {
             <span>Price:</span> {item.price}
             <span> /unit</span>
           </p>
+          <h4>
+            <span>Sold till date:</span> {sold}
+            <span> unit</span>
+          </h4>
           <h4>
             <span>In Stock:</span> {quantity}
             <span> unit</span>
