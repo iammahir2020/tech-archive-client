@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import "./AddReview.css";
 
-const AddReview = ({ setNewItem }) => {
+const AddReview = ({ loadReviews }) => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   const [rating, setRating] = useState(0);
@@ -54,7 +54,8 @@ const AddReview = ({ setNewItem }) => {
 
       event.target.reset();
       setRating(0);
-      setNewItem();
+      await loadReviews();
+      await loadReviews();
       // console.log(review);
     }
   };

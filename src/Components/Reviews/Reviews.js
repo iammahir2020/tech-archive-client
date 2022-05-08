@@ -11,21 +11,23 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const getReviews = async () => {
-      const { data } = await axios.get(
-        "https://shielded-falls-85173.herokuapp.com/review"
-      );
-      setReviews(data);
-    };
-    getReviews();
-    // setNewItem();
+    // const getReviews = async () => {
+    //   const { data } = await axios.get(
+    //     "https://shielded-falls-85173.herokuapp.com/review"
+    //   );
+    //   setReviews(data);
+    // };
+    // getReviews();
+    loadReviews();
   }, []);
 
-  const setNewItem = async () => {
+  const loadReviews = async () => {
     const { data } = await axios.get(
       "https://shielded-falls-85173.herokuapp.com/review"
     );
-    setReviews(data);
+    console.log(data);
+    const reversedData = data.reverse();
+    setReviews(reversedData);
   };
   return (
     <div>
@@ -40,7 +42,7 @@ const Reviews = () => {
       )}
       <hr />
       <div className="container mb-5">
-        <AddReview setNewItem={setNewItem}></AddReview>
+        <AddReview loadReviews={loadReviews}></AddReview>
       </div>
     </div>
   );
