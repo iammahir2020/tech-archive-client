@@ -6,7 +6,6 @@ import PageTitle from "../../Shared/PageTitle/PageTitle";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
-import Swal from "sweetalert2";
 
 const Inventory = () => {
   const navigate = useNavigate();
@@ -98,11 +97,6 @@ const Inventory = () => {
             <span>In Stock:</span> {quantity}
             <span> unit</span>
           </h4>
-          {/* <small className="text-danger">
-            {quantity === 0 && `out of stock`}
-          </small> */}
-          {/* <hr /> */}
-          {/* <p>Single Item Delivered</p> */}
           <button
             disabled={quantity === 0 ? true : false}
             onClick={handleDeliveredButton}
