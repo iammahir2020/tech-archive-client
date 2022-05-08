@@ -42,7 +42,7 @@ const AddReview = ({ setNewItem }) => {
         "https://shielded-falls-85173.herokuapp.com/review",
         review
       );
-      console.log(data.insertedId);
+      // console.log(data.insertedId);
       if (data.acknowledged === true) {
         await Swal.fire({
           title: "Success!",
@@ -54,7 +54,7 @@ const AddReview = ({ setNewItem }) => {
 
       event.target.reset();
       setRating(0);
-      setNewItem(review, data.insertedId);
+      setNewItem();
       // console.log(review);
     }
   };
