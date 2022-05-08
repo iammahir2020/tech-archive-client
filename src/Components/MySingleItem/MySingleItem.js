@@ -5,7 +5,7 @@ import { faTrashCan, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const MySingleItem = (props) => {
   const { eventListener, item, deleteBtn } = props;
-  const { _id, name, supplierName, price, quantity, image } = item;
+  const { _id, name, description, supplierName, price, quantity, image } = item;
   return (
     <div className="singleItem-card">
       <div className="singleItem-img">
@@ -14,6 +14,9 @@ const MySingleItem = (props) => {
       <div className="singleItem-info">
         <h4>{name}</h4>
         <p>Supplier: {supplierName}</p>
+        <p>
+          <small>Description: {description}</small>
+        </p>
         <p>
           Price: ${price} <small>/unit</small>{" "}
         </p>
