@@ -15,7 +15,7 @@ const Inventory = () => {
   const [quantity, setQuantity] = useState("");
   useEffect(() => {
     const getItem = async () => {
-      const url = `http://localhost:5000/inventory?id=${id}`;
+      const url = `https://shielded-falls-85173.herokuapp.com/inventory?id=${id}`;
       const { data } = await axios.get(url);
       setItem(data);
       setQuantity(data.quantity);
@@ -48,7 +48,7 @@ const Inventory = () => {
   };
 
   const updateQuantity = async (newQuantity) => {
-    const url = `http://localhost:5000/item`;
+    const url = `https://shielded-falls-85173.herokuapp.com/item`;
     const { data } = await axios.put(url, { newQuantity, id });
     if (data.acknowledged) {
       Swal.fire({

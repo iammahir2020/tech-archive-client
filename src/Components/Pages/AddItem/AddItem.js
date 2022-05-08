@@ -46,7 +46,10 @@ const AddItem = () => {
       image,
     };
     // console.log(item);
-    const { data } = await axios.post("http://localhost:5000/item", item);
+    const { data } = await axios.post(
+      "https://shielded-falls-85173.herokuapp.com/item",
+      item
+    );
     console.log(data.acknowledged);
     if (data.acknowledged === true) {
       await Swal.fire({

@@ -26,7 +26,10 @@ const AddReview = ({ setNewItem }) => {
         rating: rating,
       };
 
-      const { data } = await axios.post("http://localhost:5000/review", review);
+      const { data } = await axios.post(
+        "https://shielded-falls-85173.herokuapp.com/review",
+        review
+      );
       console.log(data.insertedId);
       if (data.acknowledged === true) {
         await Swal.fire({
@@ -64,8 +67,8 @@ const AddReview = ({ setNewItem }) => {
         </div>
         <StarRatings
           rating={rating}
-          starRatedColor="gold"
-          starHoverColor="gold"
+          starRatedColor="goldenrod"
+          starHoverColor="goldenrod"
           changeRating={changeRating}
           numberOfStars={5}
           name="rating"

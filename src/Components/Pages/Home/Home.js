@@ -29,7 +29,9 @@ const Home = () => {
 
   useEffect(() => {
     const getReviews = async () => {
-      const { data } = await axios.get("http://localhost:5000/review");
+      const { data } = await axios.get(
+        "https://shielded-falls-85173.herokuapp.com/review"
+      );
       setReviews(data);
     };
     getReviews();
@@ -102,7 +104,7 @@ const Home = () => {
         {reviews.length === 0 ? (
           <h2 className="no-item-message">No Reviews to Show</h2>
         ) : (
-          <OwlCarousel className="owl-theme" loop margin={10} nav>
+          <OwlCarousel className="owl-theme" items={2} nav>
             {reviews.map((review) => (
               <SingleReview key={review._id} review={review}></SingleReview>
             ))}
