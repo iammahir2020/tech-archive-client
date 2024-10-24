@@ -5,7 +5,7 @@ const useItems = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/items`;
+      const url = `${process.env.REACT_APP_LOCAL_API}/items`;
       const { data } = await axios.get(url);
       setItems(data);
     };

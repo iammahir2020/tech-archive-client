@@ -39,7 +39,7 @@ const AddReview = ({ loadReviews }) => {
       };
 
       const { data } = await axios.post(
-        "https://shielded-falls-85173.herokuapp.com/review",
+        `${process.env.REACT_APP_LOCAL_API}/review`,
         review
       );
       // console.log(data.insertedId);

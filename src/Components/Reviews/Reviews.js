@@ -13,7 +13,7 @@ const Reviews = () => {
   useEffect(() => {
     // const getReviews = async () => {
     //   const { data } = await axios.get(
-    //     "https://shielded-falls-85173.herokuapp.com/review"
+    //     `${process.env.REACT_APP_LOCAL_API}/review`
     //   );
     //   setReviews(data);
     // };
@@ -23,7 +23,7 @@ const Reviews = () => {
 
   const loadReviews = async () => {
     const { data } = await axios.get(
-      "https://shielded-falls-85173.herokuapp.com/review"
+      `${process.env.REACT_APP_LOCAL_API}/review`
     );
     console.log(data);
     const reversedData = data.reverse();

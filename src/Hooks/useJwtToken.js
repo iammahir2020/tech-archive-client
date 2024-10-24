@@ -10,7 +10,7 @@ const useJwtToken = (user) => {
       const email = user?.user?.email;
       if (email) {
         const { data } = await axios.post(
-          "https://shielded-falls-85173.herokuapp.com/getJWTtoken",
+          `${process.env.REACT_APP_LOCAL_API}/getJWTtoken`,
           {
             email,
           }

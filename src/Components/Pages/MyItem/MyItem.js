@@ -17,7 +17,7 @@ const MyItem = () => {
   const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
     const getItems = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/item?email=${user?.email}`;
+      const url = `${process.env.REACT_APP_LOCAL_API}/item?email=${user?.email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         // console.log(data);
@@ -45,7 +45,7 @@ const MyItem = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const url = `https://shielded-falls-85173.herokuapp.com/item?id=${id}`;
+        const url = `${process.env.REACT_APP_LOCAL_API}/item?id=${id}`;
         const { data } = await axios.delete(url);
         if (data.acknowledged) {
           const remainingItems = items.filter((item) => item._id !== id);

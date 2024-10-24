@@ -48,7 +48,7 @@ const AddItem = () => {
     };
     // console.log(item);
     const { data } = await axios.post(
-      "https://shielded-falls-85173.herokuapp.com/item",
+      `${process.env.REACT_APP_LOCAL_API}/item`,
       item
     );
     console.log(data.acknowledged);

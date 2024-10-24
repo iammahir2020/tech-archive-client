@@ -15,7 +15,7 @@ const Inventory = () => {
   const [sold, setSold] = useState("");
   useEffect(() => {
     const getItem = async () => {
-      const url = `https://shielded-falls-85173.herokuapp.com/inventory?id=${id}`;
+      const url = `${process.env.REACT_APP_LOCAL_API}/inventory?id=${id}`;
       const { data } = await axios.get(url);
       setItem(data);
       setQuantity(data.quantity);
@@ -54,7 +54,7 @@ const Inventory = () => {
 
   const updateQuantity = async (newQuantity, newSold) => {
     // console.log(newQuantity, newSold);
-    const url = `https://shielded-falls-85173.herokuapp.com/item`;
+    const url = `${process.env.REACT_APP_LOCAL_API}/item`;
     const { data } = await axios.put(url, { newSold, newQuantity, id });
     if (data.acknowledged) {
       // Swal.fire({
@@ -73,7 +73,7 @@ const Inventory = () => {
     }
   };
   const updateSoldQuantity = async (newSold) => {
-    const url = `https://shielded-falls-85173.herokuapp.com/item`;
+    const url = `${process.env.REACT_APP_LOCAL_API}/item`;
     const { data } = await axios.put(url, { newSold, id });
     if (data.acknowledged) {
       // Swal.fire({
