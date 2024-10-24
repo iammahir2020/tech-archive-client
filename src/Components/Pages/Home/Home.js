@@ -58,7 +58,7 @@ const Home = () => {
         )}
       </div>
       <div className="review-section container">
-        <h2 className="header mb-5">Reviews / Suggestions</h2>
+        <h2 className="header mb-5">Reviews</h2>
         <Reviews></Reviews>
       </div>
     </div>
